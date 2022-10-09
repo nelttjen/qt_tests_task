@@ -1,10 +1,14 @@
+import logging
+
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QDialog, QPushButton, QLabel
+from PyQt5.QtWidgets import QDialog
 
 from utils import Strings
+from .util import window_centralizate
+from .UI import AdminWindowUi
 
 
-class AdminWindow(QDialog):
+class AdminWindow(QDialog, AdminWindowUi):
     def __init__(self, parent):
         super().__init__(parent, Qt.WindowCloseButtonHint)
 
@@ -12,13 +16,13 @@ class AdminWindow(QDialog):
         self.initUi()
 
     def initUi(self):
-        self.setFixedSize(800, 600)
+        self.setFixedSize(AdminWindowUi.Meta.WINDOW_WIDTH,
+                          AdminWindowUi.Meta.WINDOW_HEIGHT)
+        window_centralizate(self)
         self.setWindowTitle(Strings.admin_window_title)
-
-        self.test_file_choose_btn = QPushButton(self)
-        self.test_file_choose_btn.setText(Strings.AdminUi.test_file_choose_btn)
-        self.test_file_choose_btn.setGeometry(400, 400, 200, 100)
 
     def exec_(self) -> list:
         super(AdminWindow, self).exec_()
-        return self.answers
+        logging.info(f'AdminWindow accepted, returning '
+                     f'{len(self.answers) if isinstance(self.answers, list) else 0} questions')
+        return self.answers or []
