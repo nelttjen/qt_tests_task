@@ -14,5 +14,13 @@
       "answer1", "answer2", "answer3", "answer4", "answer5"
     ],
     "is_multiple": false
+  },
+  {
+    "id": 3,
+    "text": "русская текстаааааа",
+    "answers": [
+      "answer1", "answer2", "answer3", "answer4", "answer5"
+    ],
+    "is_multiple": false
   }
 ]
