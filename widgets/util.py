@@ -27,3 +27,16 @@ def show_warn(parrent, caption='Warning', text=''):
 
 def show_error(parrent, caption='Error', text=''):
     QMessageBox.critical(parrent, caption, text, QMessageBox.Ok)
+
+
+def get_question_word(count: int) -> str:
+    v1 = 'вопрос'
+    v2 = 'вопроса'
+    v3 = 'вопросов'
+    if count % 100 in [11, 12, 13, 14]:
+        return v3
+    if count % 10 == 1:
+        return v1
+    if count % 10 in [2, 3, 4]:
+        return v2
+    return v3

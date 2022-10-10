@@ -36,19 +36,23 @@ class Strings:
 
         load_test_btn: str = 'Загрузить тест'
         start_test_btn: str = 'Начать тест'
+        admin_end_btn: str = 'Завершить тестирование'
 
         start_test_user_btn: str = 'Пройти тест'
         start_test_help_text: str = 'Здравствуйте! Вам предложено пройти тест.\n' \
-                                    'Тест содержит в себе %q_count% вопросов.\n' \
+                                    'Тест содержит в себе %q_count% %q_word%.\n' \
                                     'Тест полностью анонимный.'
 
         current_settings_label: str = 'Текущие настройки теста:'
-        is_exel_label = 'Экспротировать ответы в Exel:'
-        is_show_count_label = 'Показывать количество прохождений:'
-        is_use_password_label = 'Использовать пароль для окончания теста:'
+        is_exel_label: str = 'Экспротировать ответы в Exel:'
+        is_show_count_label: str = 'Показывать количество прохождений:'
+        is_use_password_label: str = 'Использовать пароль для окончания теста:'
 
         next_question_btn: str = 'Следующий вопрос'
         last_question_btn: str = 'Завершить тестирование'
 
         single_question_hint: str = '(Выберите один вариант ответа)'
         multiple_question_hint: str = '(Выберите несколько вариантов ответа)'
+
+        questions_not_load_error: str = 'Невозможно начать тест\n' \
+                                        'Загружено вопросов: 0'

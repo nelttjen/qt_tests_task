@@ -26,7 +26,7 @@ def launch_app(debug=False):
     logging.info('Starting app...')
     wind = MainWindow(debug=debug)
     wind.show()
-    return app.exec_(), wind.answers
+    return app.exec_(), wind.cleaned_data
 
 
 def on_destroy():

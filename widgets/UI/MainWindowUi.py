@@ -63,18 +63,41 @@ class MainWindowUi:
         self.is_use_password_label.setFont(get_font(10))
         self.is_use_password_label.setGeometry(25, 85, 500, 20)
 
-        self.hide_all_items()
+        self.start_test_user_btn = QPushButton(self)
+        self.start_test_user_btn.setText(Strings.MainUi.start_test_user_btn)
+        self.start_test_user_btn.setFont(get_font(15))
+        self.start_test_user_btn.setGeometry(centralizate(self.Meta.WINDOW_WIDTH, 300),
+                                             centralizate(self.Meta.WINDOW_HEIGHT, 150),
+                                             300, 150)
+
+        self.admin_end_test_button = QPushButton(self)
+        self.admin_end_test_button.setText(Strings.MainUi.admin_end_btn)
+        self.admin_end_test_button.setFont(get_font(13))
+        self.admin_end_test_button.setGeometry(0, self.Meta.WINDOW_HEIGHT - 50, 250, 50)
+
+        self.hide_test_items()
         self.show_prepare_items()
 
-    def hide_all_items(self):
+    def hide_test_items(self):
         """Выключает видимость элементов, отвечающих за прохождение теста"""
         self.current_question_label.setHidden(True)
         self.action_button.setHidden(True)
+        self.start_test_user_btn.setHidden(True)
+        self.admin_end_test_button.setHidden(True)
 
-    def show_all_items(self):
-        """Включает видимость элементов, отвечающих за прохождение теста"""
+    def prepare_new_test(self, text: str):
+        """Включает видимость элементов для регистрации нового участника"""
+        self.current_question_label.setText(text)
         self.current_question_label.setHidden(False)
+        self.start_test_user_btn.setHidden(False)
+        self.admin_end_test_button.setHidden(False)
+
+    def confirm_new_test(self):
+        """Включает видимость элементов, отвечающих за прохождение теста"""
+        self.start_test_user_btn.setHidden(True)
+        self.admin_end_test_button.setHidden(True)
         self.action_button.setHidden(False)
+        self.current_question_label.setHidden(False)
 
     def set_count_hidden(self, value: bool):
         """Изменяет видимость информационной полоски с количеством прохождений теста"""
@@ -82,8 +105,18 @@ class MainWindowUi:
 
     def hide_prepare_items(self):
         """Выключает видимость элементов, отвечающих за регистрацию нового участника"""
-        pass
+        self.load_test_btn.setHidden(True)
+        self.start_test_btn.setHidden(True)
+        self.is_exel_label.setHidden(True)
+        self.current_settings.setHidden(True)
+        self.is_show_count_label.setHidden(True)
+        self.is_use_password_label.setHidden(True)
 
     def show_prepare_items(self):
         """Включает видимость элементов, отвечающих за регистрацию нового участника"""
-        pass
+        self.load_test_btn.setHidden(False)
+        self.start_test_btn.setHidden(False)
+        self.is_exel_label.setHidden(False)
+        self.current_settings.setHidden(False)
+        self.is_show_count_label.setHidden(False)
+        self.is_use_password_label.setHidden(False)
