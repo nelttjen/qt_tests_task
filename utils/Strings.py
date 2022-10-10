@@ -29,3 +29,26 @@ class Strings:
                                '0 доступных для импорта вопросов'
         no_password_error: str = 'Задайте пароль для окончания теста\n' \
                                  'Минимальная длинна пароля: 3 символа'
+
+    @dataclasses.dataclass(frozen=True)
+    class MainUi:
+        complete_count_info_label: str = 'Количество прохождений теста:'
+
+        load_test_btn: str = 'Загрузить тест'
+        start_test_btn: str = 'Начать тест'
+
+        start_test_user_btn: str = 'Пройти тест'
+        start_test_help_text: str = 'Здравствуйте! Вам предложено пройти тест.\n' \
+                                    'Тест содержит в себе %q_count% вопросов.\n' \
+                                    'Тест полностью анонимный.'
+
+        current_settings_label: str = 'Текущие настройки теста:'
+        is_exel_label = 'Экспротировать ответы в Exel:'
+        is_show_count_label = 'Показывать количество прохождений:'
+        is_use_password_label = 'Использовать пароль для окончания теста:'
+
+        next_question_btn: str = 'Следующий вопрос'
+        last_question_btn: str = 'Завершить тестирование'
+
+        single_question_hint: str = '(Выберите один вариант ответа)'
+        multiple_question_hint: str = '(Выберите несколько вариантов ответа)'

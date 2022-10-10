@@ -5,7 +5,7 @@ from pathlib import Path
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QDialog, QFileDialog
 
-from utils import Strings
+from utils import Strings, Settings
 from .util import window_centralizate, show_info, show_warn, show_error
 from .UI import AdminWindowUi
 
@@ -15,12 +15,7 @@ class AdminWindow(QDialog, AdminWindowUi):
         super().__init__(parent, Qt.WindowCloseButtonHint)
 
         self.questions = []
-        self.options = {
-            'password': '',
-            'use_password': False,
-            'exel_export': False,
-            'show_users': False
-        }
+        self.options = Settings.DEFAULT_TEST_SETTINGS
         self.initUi()
 
     def initUi(self):
@@ -68,14 +63,18 @@ class AdminWindow(QDialog, AdminWindowUi):
         self.questions = checked_questions
         logging.info(f'File selected, found questions: {len(self.questions)}')
 
-    def confirm_file_btn(self):
-        if self.password_input_checkbox.isChecked() and len(self.password_input.text()) < 3:
-            show_error(self, text=Strings.AdminUi.no_password_error)
-            return
+
+    def update_options(self):
         self.options['password'] = self.password_input.text()
         self.options['use_password'] = self.password_input_checkbox.isChecked()
         self.options['exel_export'] = self.exel_export_checkbox.isChecked()
         self.options['show_users'] = self.show_complete_info_checkbox.isChecked()
+
+    def confirm_file_btn(self):
+        if self.password_input_checkbox.isChecked() and len(self.password_input.text()) < 3:
+            show_error(self, text=Strings.AdminUi.no_password_error)
+            return
+        self.update_options()
         self.accept()
 
     def set_question_count(self, number: int):
