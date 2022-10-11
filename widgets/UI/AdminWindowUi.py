@@ -59,3 +59,8 @@ class AdminWindowUi:
         self.password_input_checkbox.setText(Strings.AdminUi.end_password_chackbox)
         self.password_input_checkbox.setGeometry(500, 70, 300, 25)
         self.password_input_checkbox.setFont(get_font(10))
+
+        self.change_text_btn = QPushButton(self)
+        self.change_text_btn.setText(Strings.AdminUi.change_text_btn)
+        self.change_text_btn.setFont(get_font(10))
+        self.change_text_btn.setGeometry(25, 75, 250, 30)

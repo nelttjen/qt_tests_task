@@ -1,5 +1,6 @@
 import json
 import logging
+import copy
 
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QWidget
@@ -18,10 +19,10 @@ class MainWindow(QWidget, MainWindowUi):
         self.debug = debug
         logging.info(f'App started in {debug=}')
 
+        self.settings = copy.deepcopy(Settings.DEFAULT_TEST_SETTINGS)
+        self.update_settings()
         self.initUi()
 
-        self.settings = Settings.DEFAULT_TEST_SETTINGS
-        self.update_settings()
         self.questions = []
         self.session = []
         self.cleaned_data = {}
@@ -42,12 +43,19 @@ class MainWindow(QWidget, MainWindowUi):
     def connect_buttons(self):
         self.start_test_btn.clicked.connect(self.admin_start_test)
         self.load_test_btn.clicked.connect(self.show_admin)
+        self.admin_end_test_button.clicked.connect(self.end_test)
 
     def show_admin(self):
         logging.info('Launching AdminWindow')
-        self.questions, self.settings = AdminWindow(self).exec_()
-        if self.questions:
+        window = AdminWindow(parent=self, current_text=self.settings['welcome_text'])
+        val1, val2 = window.exec_()
+        if window.is_accepted:
+            logging.info(f'AdminWindow accepted, returning '
+                         f'{len(val1)} questions')
+            self.questions, self.settings = val1, val2
             self.update_settings()
+        else:
+            logging.info('AdminWindow was closed, no changes to commit')
 
     def update_settings(self):
         texts = {
@@ -73,6 +81,11 @@ class MainWindow(QWidget, MainWindowUi):
         welcome_text_formatted = welcome_text_formatted.replace('%q_count%', str(len(self.questions)))
         welcome_text_formatted = welcome_text_formatted.replace('%q_word%', get_question_word(len(self.questions)))
         return welcome_text_formatted
+
+    def end_test(self):
+        if self.settings['use_password']:
+            pass
+
 
     def clean_session(self):
         new_data = {'answers': [], 'answers_raw': self.session}

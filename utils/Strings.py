@@ -5,6 +5,7 @@ import dataclasses
 class Strings:
     main_window_title: str = 'Title'
     admin_window_title: str = 'New Test Setup'
+    text_dialog_title: str = 'Изменить текст'
 
     @dataclasses.dataclass(frozen=True)
     class AdminUi:
@@ -16,6 +17,7 @@ class Strings:
 
         exel_import_checkbox: str = 'Также экспортировать ответы в exel файл по окончанию опроса'
         show_complete_info_checkbox: str = 'Показывать сколько человек уже прошло тест'
+        change_text_btn: str = 'Изменить приветственный текст'
 
         end_password_input_hint: str = 'Введите пароль (мин. 3 символа)'
         end_password_label: str = 'Задайте пароль для завершения тестирования'
@@ -56,3 +58,9 @@ class Strings:
 
         questions_not_load_error: str = 'Невозможно начать тест\n' \
                                         'Загружено вопросов: 0'
+
+    @dataclasses.dataclass(frozen=True)
+    class TextDialog:
+        format_label = 'Доступные переменные для форматирования:'
+        q_count_label = '%q_count% - Количество загруженных вопросов'
+        q_word_label = '%q_word% - Слово "вопрос", падеж синхронизируется с количеством вопросов'
