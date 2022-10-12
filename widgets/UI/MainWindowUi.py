@@ -1,5 +1,5 @@
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QPushButton, QLabel, QCheckBox
+from PyQt5.QtWidgets import QPushButton, QLabel, QButtonGroup
 from widgets.util import centralizate, get_font
 from utils.Strings import Strings
 
@@ -102,6 +102,9 @@ class MainWindowUi:
     def set_count_hidden(self, value: bool):
         """Изменяет видимость информационной полоски с количеством прохождений теста"""
         self.complete_count_info_label.setHidden(value)
+
+    def set_count_value(self, value: int):
+        self.complete_count_info_label.setText(f'{Strings.MainUi.complete_count_info_label} {value}')
 
     def hide_prepare_items(self):
         """Выключает видимость элементов, отвечающих за регистрацию нового участника"""

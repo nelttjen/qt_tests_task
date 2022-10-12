@@ -54,10 +54,15 @@ class Strings:
         last_question_btn: str = 'Завершить тестирование'
 
         single_question_hint: str = '(Выберите один вариант ответа)'
-        multiple_question_hint: str = '(Выберите несколько вариантов ответа)'
+        multiple_question_hint: str = '(Выберите один или несколько вариантов ответа)'
 
         questions_not_load_error: str = 'Невозможно начать тест\n' \
                                         'Загружено вопросов: 0'
+
+        agreement_no_pass: str = 'Вы действительно хотите завершить тестирование?'
+        agreement_use_pass: str = 'Введите пароль для завершения тестирования'
+
+        answer_not_selected: str = 'Пожалуйста, выберите один или несколько ответов!'
 
     @dataclasses.dataclass(frozen=True)
     class TextDialog:
