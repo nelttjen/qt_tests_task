@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "text": "Question_text_blabla3248723489723489278423423789427842378947823784327894378924789",
+    "answers": [
+      "13-17", "18-21", "22-30", "30+"
+    ],
+    "is_multiple": true
+  },
+  {
+    "id": 2,
+    "text": "Question_text_blabla3248723489723489278423423789427842378947823784327894378924789",
+    "answers": [
+      "answer1", "answer2", "answer3", "answer4", "answer5"
+    ],
+    "is_multiple": false
+  },
+  {
+    "id": 3,
+    "text": "русская текстаааааа",
+    "answers": [
+      "answer1", "answer2", "answer3", "answer4", "answer5"
+    ],
+    "is_multiple": false
+  }
+]
