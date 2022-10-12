@@ -41,7 +41,7 @@ def on_destroy():
     if not Settings.DEBUG:
         logging.info('Saving answers...')
         with open(f'results/results {date_format}.json', 'w', encoding='utf-8') as f:
-            json.dump(answers, f)
+            json.dump(answers, f, ensure_ascii=False)
         logging.info('Answers saved')
 
 

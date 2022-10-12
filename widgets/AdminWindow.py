@@ -71,7 +71,7 @@ class AdminWindow(QDialog, AdminWindowUi):
         logging.info(f'File selected, found questions: {len(self.questions)}')
 
     def update_options(self):
-        self.options['password'] = self.password_input.text()
+        self.options['password'] = hash(self.password_input.text())
         self.options['use_password'] = self.password_input_checkbox.isChecked()
         self.options['exel_export'] = self.exel_export_checkbox.isChecked()
         self.options['show_users'] = self.show_complete_info_checkbox.isChecked()

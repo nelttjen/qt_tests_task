@@ -5,7 +5,7 @@ from utils.Strings import Strings
 
 @dataclasses.dataclass(frozen=True)
 class Settings:
-    DEBUG: bool = False
+    DEBUG: bool = True
 
     DEFAULT_TEST_SETTINGS = {
             'password': '',

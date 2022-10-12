@@ -145,10 +145,7 @@ class MainWindow(QWidget, MainWindowUi):
             new_button.setHidden(False)
             self.button_group.append(new_button)
 
-        # self.button_group
-
         hint_text = Strings.MainUi.multiple_question_hint if is_multiple else Strings.MainUi.single_question_hint
-
         self.current_question_label.setText(f'{q_id}. {text} {hint_text}')
 
     def save_test(self):
@@ -173,7 +170,7 @@ class MainWindow(QWidget, MainWindowUi):
             password = window.password_input.text()
             if not result:
                 return
-            if password == self.settings['password']:
+            if hash(password) == self.settings['password']:
                 logging.info('Password is correct.')
                 self.close_on_agree()
             else:
@@ -193,8 +190,21 @@ class MainWindow(QWidget, MainWindowUi):
         self.destroy()
 
     def clean_session(self):
-        new_data = {'answers': [], 'answers_raw': self.session}
-        self.cleaned_data = new_data
+
+        questions = len(self.questions)
+        answers = []
+
+        for i in range(questions):
+            curr_text = self.questions[i]['text']
+            curr_answers = {}
+            for item in self.questions[i]['answers']:
+                curr_answers[item] = 0
+            for user_answers in self.session:
+                for user_curr_answers in user_answers[i]['question_answers']:
+                    curr_answers[user_curr_answers] += 1
+            answers.append({curr_text: curr_answers})
+
+        self.cleaned_data = {'answers': answers, 'answers_raw': self.session}
 
     def closeEvent(self, a0) -> None:
         super(MainWindow, self).closeEvent(a0)
