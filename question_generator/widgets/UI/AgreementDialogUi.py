@@ -19,16 +19,3 @@ class AgreementDialogUi:
         self.label.setText("")
         self.label.setAlignment(Qt.AlignCenter)
         self.label.setObjectName("label")
-
-
-class PasswordDialogUi(AgreementDialogUi):
-    def __init__(self):
-        super().__init__()
-        self.label.setGeometry(0, 0, 221, 31)
-
-        self.password_input = QLineEdit(self)
-        self.password_input.setGeometry(20, 30, 221 - 40, 30)
-        font = QFont()
-        font.setPointSize(12)
-        self.password_input.setFont(font)
-        self.password_input.setPlaceholderText('Введите пароль')
