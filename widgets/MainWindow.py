@@ -159,7 +159,7 @@ class MainWindow(QWidget, MainWindowUi):
         button_type = QRadioButton if not is_multiple else QCheckBox
 
         # Параметры кнопки ответа
-        box_w, box_h = 250, 35
+        box_w, box_h = 700, 35
         box_x, box_y = self.Meta.CHECKBOX_WIDTH_START, self.Meta.CHECKBOX_HEIGHT_START
 
         # Создание кнопок и расстановка на нужное место

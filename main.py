@@ -21,6 +21,7 @@ def on_launch():
     logging.info('======================================')
     logging.info("Initialization done.")
 
+
 def launch_app(debug=False):
     """Запуск и удержание приложения, возврат ответов с приложения и кода завершения"""
 
@@ -39,16 +40,19 @@ def on_destroy(to_csv=False):
     #     shutil.rmtree('temp')
     # except:
     #     logging.error('Error while deleting temp folder')
+    logging.info('Saving answers...')
+
     date_format = datetime.datetime.now().strftime('%d.%m.%Y_(%H:%M:%S)')
     fp = f'results/{date_format}'
     os.mkdir(fp) if not os.path.isdir(fp) else None
-    if not Settings.DEBUG:
-        logging.info('Saving answers...')
-        with open(f'{fp}/results.json', 'w', encoding='utf-8') as f:
-            json.dump(answers, f, ensure_ascii=False)
-        if to_csv:
-            format_csv(answers, fp)
-        logging.info('Answers saved')
+
+    with open(f'{fp}/results.json', 'w', encoding='utf-8') as f:
+        json.dump(answers, f, ensure_ascii=False)
+
+    if to_csv:
+        format_csv(answers, fp)
+
+    logging.info('Answers saved')
     logging.info('Exiting app... Bye-bye!')
 
 
