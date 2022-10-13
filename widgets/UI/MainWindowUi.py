@@ -75,6 +75,12 @@ class MainWindowUi:
         self.admin_end_test_button.setFont(get_font(13))
         self.admin_end_test_button.setGeometry(0, self.Meta.WINDOW_HEIGHT - 50, 250, 50)
 
+        self.abort_test_button = QPushButton(self)
+        self.abort_test_button.setText(Strings.MainUi.abort_btn)
+        self.abort_test_button.setFont(get_font(12))
+        self.abort_test_button.setGeometry(25, self.Meta.WINDOW_HEIGHT - 50 - 25,
+                                           250, 50)
+
         self.hide_test_items()
         self.show_prepare_items()
 
@@ -84,6 +90,7 @@ class MainWindowUi:
         self.action_button.setHidden(True)
         self.start_test_user_btn.setHidden(True)
         self.admin_end_test_button.setHidden(True)
+        self.abort_test_button.setHidden(True)
 
     def prepare_new_test(self, text: str):
         """Включает видимость элементов для регистрации нового участника"""
@@ -98,6 +105,7 @@ class MainWindowUi:
         self.admin_end_test_button.setHidden(True)
         self.action_button.setHidden(False)
         self.current_question_label.setHidden(False)
+        self.abort_test_button.setHidden(False)
 
     def set_count_hidden(self, value: bool):
         """Изменяет видимость информационной полоски с количеством прохождений теста"""

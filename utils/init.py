@@ -3,11 +3,12 @@ import os
 
 
 def folder_init():
-    os.mkdir('temp') if not os.path.exists('temp') else None
+    # os.mkdir('temp') if not os.path.exists('temp') else None
     os.mkdir('results') if not os.path.exists('results') else None
 
 
 def init_logger():
+    """Инициализация логера в красивом формате вывода"""
     logging.basicConfig(level=logging.INFO)
 
     logger = logging.getLogger()

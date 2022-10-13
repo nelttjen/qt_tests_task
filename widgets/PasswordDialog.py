@@ -1,5 +1,5 @@
 from widgets.AgreementDialog import AgreementDialog
-from widgets.UI.AgreementDialogUi import PasswordDialogUi
+from .UI import PasswordDialogUi
 
 from utils import Strings
 from .util import centralizate

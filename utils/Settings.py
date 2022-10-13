@@ -5,7 +5,8 @@ from utils.Strings import Strings
 
 @dataclasses.dataclass(frozen=True)
 class Settings:
-    DEBUG: bool = True
+    """Датакласс к настройками приложения"""
+    DEBUG: bool = False
 
     DEFAULT_TEST_SETTINGS = {
             'password': '',

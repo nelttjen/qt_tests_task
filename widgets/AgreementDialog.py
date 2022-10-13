@@ -2,7 +2,7 @@
 
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QDialog
-from widgets.UI.AgreementDialogUi import AgreementDialogUi
+from .UI import AgreementDialogUi
 
 
 class AgreementDialog(QDialog, AgreementDialogUi):
