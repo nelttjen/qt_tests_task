@@ -3,8 +3,7 @@ import os
 
 
 def folder_init():
-    # os.mkdir('temp') if not os.path.exists('temp') else None
-    os.mkdir('results') if not os.path.exists('results') else None
+    os.mkdir('output') if not os.path.exists('output') else None
 
 
 def init_logger():

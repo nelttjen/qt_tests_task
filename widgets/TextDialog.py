@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import QDialog
 
 from utils import Strings
 from .util import window_centralizate
-from .UI.TextDialogUi import TextDialogUi
+from .UI import TextDialogUi
 
 
 class TextDialog(QDialog, TextDialogUi):

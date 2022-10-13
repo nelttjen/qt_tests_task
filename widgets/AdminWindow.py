@@ -6,10 +6,10 @@ from pathlib import Path
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QDialog, QFileDialog
 
-from .TextDialog import TextDialog
 from utils import Strings, Settings
 from .util import window_centralizate, show_info, show_warn, show_error
 from .UI import AdminWindowUi
+from .TextDialog import TextDialog
 
 
 class AdminWindow(QDialog, AdminWindowUi):

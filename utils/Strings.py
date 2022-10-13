@@ -3,7 +3,8 @@ import dataclasses
 
 @dataclasses.dataclass(frozen=True)
 class Strings:
-    main_window_title: str = 'Title'
+    """Датакласс для редоктирования почти всех надписей приложения"""
+    main_window_title: str = 'Тестирование'
     admin_window_title: str = 'New Test Setup'
     text_dialog_title: str = 'Изменить текст'
 
@@ -52,6 +53,8 @@ class Strings:
 
         next_question_btn: str = 'Следующий вопрос'
         last_question_btn: str = 'Завершить тестирование'
+        abort_btn: str = 'Прервать тестирование'
+        abort_agree_text: str = 'Вы уверены? Ваши ответы не будут сохранены.'
 
         single_question_hint: str = '(Выберите один вариант ответа)'
         multiple_question_hint: str = '(Выберите один или несколько вариантов ответа)'
@@ -63,6 +66,10 @@ class Strings:
         agreement_use_pass: str = 'Введите пароль для завершения тестирования'
 
         answer_not_selected: str = 'Пожалуйста, выберите один или несколько ответов!'
+
+        test_complete_caption: str = 'Спасибо за участие!'
+        test_complete_text: str = 'Спасибо за участие в тестировании.\n' \
+                                  'Выши ответы были записаны.'
 
     @dataclasses.dataclass(frozen=True)
     class TextDialog:
